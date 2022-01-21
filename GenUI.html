@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TerrainGeneration</title>
+    <link rel="stylesheet" href="GenUI.css" type="text/css"></link>
+</head>
+<script id = genScript src = "CustomTerrainGen.js" type = "text/javascript"></script>
+<script id = tileScript src="ConvertToTile.js" type="text/javascript"></script>
+    <body id = "body">
+        <div id = "ui">
+            <div id = "titleFrame">
+                <h1 id = "title">Terrain Genration</h1>
+            </div>
+            <div id = "ui_format_container" class = "ui_format">
+                <div id = "quadratic_pannel" class = pannel>
+                    <form class="input_form">
+                        <div class = element_cont>
+                            Map Height:
+                            <input type="number" id="height" value="1000" min="0" max="5000" class="text_input"<br>
+                        </div>
+                        <div class = element_cont>
+                            Map Width: 
+                            <input type="number" id="width" value="5000" min="0" max="20000" class="text_input"<br>
+                        </div>
+                        <div class = element_cont>
+                            Max Hill Height:
+                            <input type="number" id="HillYRange" value="500" class="text_input"<br>
+                        </div>
+                        <div class = element_cont>
+                            Hill Concentration <br>(% chance): 
+                            <input type="number" id="HillXRange" value="1" min="0" max="100" class="text_input"<br>
+                        </div>
+                        <div class = element_cont>
+                            Padding Below Hills:
+                            <input type="number" id="hillOffset" value="200" class="text_input"<br>
+                        </div>
+                        <div class = element_cont>
+                            Minimum Hill Spacing:
+                            <input type="number" id="minDistance" value="40" min="0" class="text_input"<br> 
+                        </div>
+                        <div class = element_cont>
+                            Generate Terrain As Tile:
+                            <input id="chooseTile" type="checkbox"><br>
+                        </div>
+                    </form>
+                    <!-- button id = "showTileOptions" class = "submit" onclick="tileOptions()">Show Tile Options</button -->
+                    <button class = "submit" onclick="submitted()">Generate!</button>
+                </div>
+                <div id = noise_pannel class = pannel>
+
+                </div>
+            </div>
+            <div id = "tile_options_pannel">
+                <form class="input_form">
+                    Tile Sizing: 
+                    <input type="number" id="tileSize" value="20" min="1" max="100" class="text_input"<br>
+                </form>
+            </div>
+        </div>
+        <div id = "overflow_handler">
+            <canvas id = "generation_canvas">
+                <script id = "main" src = "mainScript.js" type = "text/javascript"></script>
+            </canvas>
+        </div>
+    </body>
+</html>
